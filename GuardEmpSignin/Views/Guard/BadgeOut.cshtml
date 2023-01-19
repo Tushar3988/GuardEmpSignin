@@ -1,0 +1,23 @@
+﻿@model IEnumerable<GuardEmpSignin.Models.GuardQueue>
+<h5>
+<code>Assigned Badges Record</code>
+</h5>
+<div class="container">
+    <table class="table align-content-center">
+        <thead style="align-content:center">
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Badge No.</th>
+            <th>Assign Time</th>
+        </thead><tbody class="table-striped p-5 align-content-center">
+            @foreach (var item in Model!)
+            {<tr class="align-middle">
+     <td><img src=@item.TempEmpImg alt="img" width="60px"/>
+         </td>
+         <td class="Ename">@item.TempEmployee.EmployeeFirstName @item.TempEmployee.EmployeeLastName</td>
+         <td>@item.TempEmployee.TempBadge</td>
+         <td>@item.TempEmployee.AssignT.Value.TimeOfDay</td>
+     </tr>
+            }</tbody>
+</table>
+</div>

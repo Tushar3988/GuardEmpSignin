@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Sign-Out Page";
+}<h5>Employee Sign Out Page</h5> <div class="text-center"><div>
+        @using (Html.BeginForm("SignOut", "Home", FormMethod.Post))
+        {
+            <label>Badge Number</label>
+
+            <input type="text" name="badge" required/>
+
+            <input type="submit" class="btn-dark btn-lg" value="submit"/>
+        }</div></div> 

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<GuardEmpSignin.Models.EmployeeTempBadge>
+@*
+*@ <h3>Badge Report Page</h3>
+<div class="container">
+    <div class="row">
+        @using (Html.BeginForm("BadgeReport", "Guard", FormMethod.Post))
+        {
+            <div class="align-self-auto"> <lable>Start Date</lable><input type="datetime-local" name="sDate" value="@DateTime.Today" runat="server" /><lable>End Date</lable><input type="datetime-local" name="eDate" value="@DateTime.Today" runat="server" /><lable>First Name</lable><input type="text" name="fName" /><lable>Last Name</lable><input type="text" name="lName" /><button type="submit" value="Search" class="btn btn-info">Search</button></div>         @*<lable>inactive only</lable><input type="checkbox" name="activeCheck" />*@
+        }
+    </div><div class="row">
+        <div class="container-fluid">
+            <table class="table">
+                <thead>
+                <th>Name</th>
+                <th>Badge</th>
+                <th>Sign-In Time</th>
+                <th>Assign Time</th>
+                <th>Sign-Out Time</th></thead>
+                <tbody class="table-striped">
+                    @if (Model != null)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr><td class="Ename">@item.EmployeeFirstName @item.EmployeeLastName</td><td>@item.TempBadge</td><td>@item.SignInT</td><td>@item.AssignT</td><td>@item.SignOutT</td></tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
